@@ -7,12 +7,8 @@ import AddTodo from "./AddTodo";
 class App extends React.Component {
   constructor(props){
     super(props); // 부모 생성자를 반드시 호출해야 함
-    this.state = {
-      items: [
-        {id: 0, title: "Hello World 1", done: true}, // state에 item 객체를 담는다.
-        {id: 1, title: "Hello World 2", done: false},
-        {id: 2, title: "Hello World 3", done: true}
-      ]  
+    this.state = { 
+      items: [],  
     };
   }
 
@@ -26,12 +22,22 @@ class App extends React.Component {
     console.log("items: ", this.state.items);
   }
 
+  delete = (item) => {
+    const thisItems = this.state.items;
+    console.log("Before delete : ", this.state.items)
+    const newItems = thisItems.filter(e => e.id !== item.id);
+    this.setState({ items: newItems }, () => {
+      // 디버깅 콜백
+        console.log("After delete : ", this.state.items)
+    });
+  }
+
   render(){
     var todoItems = this.state.items.length > 0 && (
       <Paper style ={{ margin: 16}}>
         <List>
           {this.state.items.map((item, idx) => (
-            <Todo item={item} key={item.id} />
+            <Todo item={item} key={item.id} delete={this.delete}/> // delete={this.delete}로 함수를 자식에게 전달
           ))}
         </List>
       </Paper>

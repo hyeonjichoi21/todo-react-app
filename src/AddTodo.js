@@ -6,7 +6,7 @@ class AddTodo extends React.Component {
     super(props);
     this.state = { item: { title: ""} }; // 사용자의 입력을 저장할 오브젝트
     this.add = props.add;
-  }
+  } 
 
   onInputChange = (e) => { // 이벤트가 오면 이렇게 처리하라 <<람다식>>
     const thisItem = this.state.item;
