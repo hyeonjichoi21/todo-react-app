@@ -4,7 +4,7 @@ import App from "./App";
 import Login from "./Login";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Box from "@material-ui/core/Box";
-import { Typography } from "@material-ui/core/Typography";
+import { Typography } from "@material-ui/core";
 
 function Copyright() {
     return(
@@ -31,7 +31,7 @@ class AppRouter extends React.Component {
                         </Route>
                     </Switch>
                 </div>
-                <Box mt={s}>
+                <Box mt={5}>
                     <Copyright />
                 </Box>
             </Router>
