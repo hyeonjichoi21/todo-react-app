@@ -19,18 +19,6 @@ export function call(api, method, request) {
         method: method,
     };
 
-  // 로컬 스토리지에서 ACCESS TOKEN 가져오기
-  const accessToken = localStorage.getItem("ACCESS_TOKEN");
-  if (accessToken && accessToken !== null) {
-    headers.append("Authorization", "Bearer " + accessToken);
-  }
-
-  let options = {
-    headers: headers,
-    url: API_BASE_URL + api,
-    method: method,
-  };
-
   if (request) {
     // GET method
     options.body = JSON.stringify(request);
