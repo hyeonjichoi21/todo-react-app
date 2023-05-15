@@ -11,12 +11,14 @@ class App extends React.Component {
     this.state = {
       items: [
 
-      ],
-      loading: true
+      ]
     };
   }
 
   componentDidMount() {
+    /* 2. componentDidMount에서 todo리스트를 가져오는 
+    GET 리퀘스트가 성공적으로 리턴하는 경우 loading을 false로 고친다. 
+    더 이상 로딩중이 아니라는 뜻이다. */
     call("/todo", "GET", null).then((response) =>
       this.setState({items: response.data, loading:false})
     );
@@ -26,77 +28,45 @@ class App extends React.Component {
     call("/todo", "POST", item).then((response) =>
       this.setState({ items: response.data })
     );
-  }
+  };
 
   delete = (item) => {
     call("/todo", "DELETE", item).then((response) =>
       this.setState({ items: response.data })
     );
-  }
+  };
 
   update = (item) => {
-    call("/todo", "PUT", item).then((response) => 
-      this.setState({items: response.data})
+    call("/todo", "PUT", item).then((response) =>
+      this.setState({ items: response.data })
     );
-  }
+  };
 
   render() {
     var todoItems = this.state.items.length > 0 && (
-      <Paper style={{margin:16}}>
+      <Paper style={{ margin: 16 }}>
         <List>
-          { this.state.items.map((item, index) => (
-              <Todo 
-                item={item} 
-                key={item.id} 
-                delete={this.delete}
-                update={this.update} 
-              />
+          {this.state.items.map((item, idx) => (
+            <Todo
+              item={item}
+              key={item.id}
+              delete={this.delete}
+              update={this.update}
+            />
           ))}
         </List>
       </Paper>
     );
 
-    var navigationBar = (
-      <AppBar position="static">
-        <Toolbar>
-          <Grid justify="space-between" container>
-            <Grid item>
-              <Typography variant="h6">오늘의 할일</Typography>
-            </Grid>
-            <Grid>
-              <Button color="inherit" onClick={signout}>
-                로그아웃
-              </Button>
-            </Grid>
-          </Grid>
-        </Toolbar>
 
-      </AppBar>
-    );
-
-
-    var todoListPage = (
-      <div>
-        {navigationBar}
+    return (
+      <div className="App">
         <Container maxWidth="md">
           <AddTodo add={this.add} />
-          <div className="TodoList">
-            {/* <Todo> 컴포넌트 여러 개*/}
-            {todoItems}
-          </div>
+          <div className="TodoList">{todoItems}</div>
         </Container>
       </div>
-    );
-
-    var loadingPage = <h1>로딩중...</h1>;
-
-    var content = loadingPage;
-
-    if( !this.state.loading ) {
-      content = todoListPage;
-    }
-
-    return <div className="App">{content}</div>;
+  );
   }
 }
 
