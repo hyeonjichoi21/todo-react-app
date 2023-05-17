@@ -10,10 +10,13 @@ class SignUp extends React.Component {
     }
 
     handleSubmit(event) {
+        event.preventDefault();
+
         const data = new FormData(event.target);
         const username = data.get("username");
         const email = data.get("email");
         const password = data.get("password");
+
         signup({email:email, username:username, password:password}).then(
             (response) => {
                 window.location.href = "/login";
@@ -41,6 +44,17 @@ class SignUp extends React.Component {
                                 id="username"
                                 label="사용자 이름"
                                 autoFocus
+                            />
+                        </Grid>
+                        <Grid item xs={12}>
+                            <TextField
+                                autoComplete="email"
+                                name="email"
+                                variant="outlined"
+                                required
+                                fullWidth
+                                id="email"
+                                label="이메일 주소"
                             />
                         </Grid>
                         <Grid item xs={12}>
