@@ -1,5 +1,6 @@
 import React from "react";
 import { signin } from "./service/ApiService";
+import "./Login.css";
 import {
   Link,
   Button,
@@ -26,7 +27,14 @@ class Login extends React.Component {
 
   render() {
     return (
-      <Container component="main" maxWidth="xs" style={{ marginTop: "8%" }}>
+      <div className="Login">
+        <Container 
+        component="main" 
+        maxWidth="xs" 
+        style={{ 
+          marginTop: "8%"
+        }}
+        >
         <Grid container spacing={2}>
           <Grid item xs={12}>
             <Typography component="h1" variant="h5">
@@ -76,7 +84,9 @@ class Login extends React.Component {
             </Link>
           </Grid>
         </form>
-      </Container>
+        </Container>
+      </div>
+      
     );
   }
 }

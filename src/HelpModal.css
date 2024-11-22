@@ -1,0 +1,33 @@
+
+.faq-item {
+  cursor: pointer;
+}
+
+.faq-item:hover {
+  background-color: #f5f5f5;
+}
+
+.faq-item.expanded {
+  background-color: #f0f0f0;
+}
+
+.modal-title,
+.faq-item strong,
+.faq-item {
+  color: navy !important;
+}
+
+.modal-content {
+  margin: 0 auto;
+  max-width: 600px;
+}
+
+.modal-container {
+  display: flex;
+  justify-content: center;
+}
+
+.modal-paper {
+  margin-top: 50px;
+}
+

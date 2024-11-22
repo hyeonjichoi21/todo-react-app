@@ -1,5 +1,13 @@
 .App {
   text-align: center;
+  justify-content: center;
+}
+
+.App {
+  background-image: url("./images/홈 배경화면.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh; 
 }
 
 .App-logo {
@@ -35,4 +43,15 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.todo-table {
+  border-collapse: collapse;
+  border: 1px solid black;
+}
+
+.todo-table th,
+.todo-table td {
+  border: 1px solid black;
+  padding: 8px;
 }

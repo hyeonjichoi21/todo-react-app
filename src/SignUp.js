@@ -1,4 +1,5 @@
 import React from "react";
+import "./SignUp.css";
 import { Button, TextField, Link, Grid, Container, Typography} from "@material-ui/core";
 
 import { signup } from "./service/ApiService";
@@ -26,7 +27,8 @@ class SignUp extends React.Component {
 
     render() {
         return (
-            <Container component="main" maxWidth="xs" style={{ marginTop: "8%"}}>
+            <div className="SignUp">
+                <Container component="main" maxWidth="xs" style={{ marginTop: "8%",}}>
                 <form noValidate onSubmit={this.handleSubmit}>
                     <Grid container spacing={2}>
                         <Grid item xs={12}>
@@ -88,7 +90,9 @@ class SignUp extends React.Component {
                         </Grid>
                     </Grid>
                 </form>
-            </Container>
+                </Container>
+            </div>
+            
         );
     }
 }
