@@ -1,6 +1,7 @@
 # Getting Started with Create React App
 
 웹프로그래밍응용_Web programming applications 투두 앱 만들기_리액트(frontend)
+3-1학기
 
 ## Available Scripts
 
