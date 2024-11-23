@@ -1,6 +1,6 @@
 # Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+웹프로그래밍응용_Web programming applications 투두 앱 만들기_리액트(frontend)
 
 ## Available Scripts
 
